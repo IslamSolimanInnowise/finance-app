@@ -1,26 +1,100 @@
 @import "tailwindcss";
 
+@theme {
+  --font-sans: var(--font-public-sans);
+  --color-Beige-500: var(--Beige-500);
+  --color-Beige-100: var(--Beige-100);
+  --color-Grey-900: var(--Grey-900);
+  --color-Grey-500: var(--Grey-500);
+  --color-Grey-300: var(--Grey-300);
+  --color-Grey-100: var(--Grey-100);
+  --color-Secondary-Green: var(--Secondary-Green);
+  --color-Secondary-Yellow: var(--Secondary-Yellow);
+  --color-Secondary-Cyan: var(--Secondary-Cyan);
+  --color-Secondary-Navy: var(--Secondary-Navy);
+  --color-Secondary-Red: var(--Secondary-Red);
+  --color-Secondary-Purple: var(--Secondary-Purple);
+  --color-Other-Purple: var(--Other-Purple);
+  --color-Other-Turquoise: var(--Other-Turquoise);
+  --color-Other-Brown: var(--Other-Brown);
+  --color-Other-Magenta: var(--Other-Magenta);
+  --color-Other-Blue: var(--Other-Blue);
+  --color-Other-Navy-Grey: var(--Other-Navy-Grey);
+  --color-Other-Army-Green: var(--Other-Army-Green);
+  --color-Other-Gold: var(--Other-Gold);
+  --color-Other-Orange: var(--Other-Orange);
+  --color-White: var(--White);
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Font */
+  --font-public-sans: "Public Sans", sans-serif;
+
+  /* Beige */
+  --Beige-500: #98908B;
+  --Beige-100: #f8f4f0;
+
+  /* Grey */
+  --Grey-900: #201f24;
+  --Grey-500: #696868;
+  --Grey-300: #b3b3b3;
+  --Grey-100: #f2f2f2;
+
+  /* Secondary Colors */
+  --Secondary-Green: #277C78;
+  --Secondary-Yellow: #F2CDAC;
+  --Secondary-Cyan: #82C9D7;
+  --Secondary-Navy: #626070;
+  --Secondary-Red: #C94736;
+  --Secondary-Purple: #826CB0;
+
+  /* Other Colors */
+  --Other-Purple: #AF81BA;
+  --Other-Turquoise: #597C7C;
+  --Other-Brown: #93674F;
+  --Other-Magenta: #934F6F;
+  --Other-Blue: #3F82B2;
+  --Other-Navy-Grey: #97A0AC;
+  --Other-Army-Green: #7F9161;
+  --Other-Gold: #CAB361;
+  --Other-Orange: #BE6C49;
+
+  /* White */
+  --White: #ffffff;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+@layer base {
+  @apply m-0 p-0 box-border
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+@utility text-preset {
+  @apply tracking-[0px] font-sans
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@utility text-preset-1 {
+  @apply text-preset text-[32px]/[120%] font-bold
+}
+
+@utility text-preset-2 {
+  @apply text-preset text-xl/[120%] font-bold
+}
+
+@utility text-preset-3 {
+  @apply text-preset text-base font-bold
+}
+
+@utility text-preset-4 {
+  @apply text-preset text-sm/normal font-normal
+}
+
+@utility text-preset-4-bold {
+  @apply text-preset-4 font-bold
+}
+
+@utility text-preset-5 {
+  @apply text-preset text-xs/normal font-normal
+}
+
+@utility text-preset-5-bold {
+  @apply text-preset-5 font-bold
 }

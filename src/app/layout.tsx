@@ -20,11 +20,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${publicSans.variable} antialiased bg-Secondary-Purple`}
-      >
-        {children}
-      </body>
+      <body className={`${publicSans.variable} antialiased`}>{children}</body>
     </html>
   );
 }

@@ -3,7 +3,7 @@ import Logo from "@/../public/Logo.png";
 
 const SideBar: React.FC = () => {
   return (
-    <aside className="p-5 w-[41.6%] min-h-240 h-screen bg-red-400">
+    <aside className="p-5 w-[41.6%] min-h-240 h-screen">
       <div className="h-full w-full p-10 rounded-xl bg-[url('/Login-and-Signup-Illustration-Image.svg')] bg-cover bg-top bg-no-repeat flex flex-col justify-between">
         <Image src={Logo} alt="Logo" className="object-cover" />
         <div className="text-white flex flex-col gap-6">

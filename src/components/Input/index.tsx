@@ -17,6 +17,7 @@ const Input: React.FC<InputProps> = ({
   const inputId = useId();
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
   const originalType = type;
+
   return (
     <div className="flex flex-col gap-1">
       <label htmlFor={inputId} className="text-preset-5 text-Grey-500">

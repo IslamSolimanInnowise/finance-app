@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Input from "../Input";
+import Button from "../Button";
 
 const RegisterForm: React.FC = () => {
   return (
@@ -20,12 +21,7 @@ const RegisterForm: React.FC = () => {
             </p>
           </Input>
         </div>
-        <button
-          type="submit"
-          className="bg-Grey-900 text-White w-full p-4 rounded-lg text-preset-4 cursor-pointer text-center mb-8"
-        >
-          Create Account
-        </button>
+        <Button>Create Account</Button>
         <p className="text-center text-preset-4 text-Grey-500">
           Already have an account?{" "}
           <Link

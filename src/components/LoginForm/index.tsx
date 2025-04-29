@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Input from "../Input";
+import Button from "../Button";
 
 const LoginForm = () => {
   return (
@@ -15,12 +16,7 @@ const LoginForm = () => {
             required
           />
         </div>
-        <button
-          type="submit"
-          className="bg-Grey-900 text-White w-full p-4 rounded-lg text-preset-4 cursor-pointer text-center mb-8"
-        >
-          Login
-        </button>
+        <Button type="submit">Login</Button>
         <p className="text-center text-preset-4 text-Grey-500">
           Need to create an account?{" "}
           <Link href="/" className="text-Grey-900 underline text-preset-4-bold">

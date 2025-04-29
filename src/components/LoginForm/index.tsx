@@ -1,12 +1,56 @@
+"use client";
 import Link from "next/link";
 import Input from "../Input";
 import Button from "../Button";
+import { useRouter } from "next/navigation";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "@/firebase";
 
 const LoginForm = () => {
+  const router = useRouter();
+
+  const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    const formData = new FormData(e.currentTarget);
+    const formDataObject = Object.fromEntries(formData.entries()) as Record<
+      string,
+      string
+    >;
+
+    try {
+      const userCredential = await signInWithEmailAndPassword(
+        auth,
+        formDataObject.email,
+        formDataObject.password
+      );
+
+      console.log(userCredential);
+      console.log("current user is", auth.currentUser);
+
+      alert("Congratulations! You have successfully logged in. \n ENJOY!!! ;)");
+
+      // Wait for a brief moment to ensure auth state is updated
+      setTimeout(() => {
+        router.push("/dashboard");
+        // Force a refresh to ensure the new auth state is recognized
+        router.refresh();
+      }, 100);
+    } catch (error) {
+      console.error(error);
+      if (error instanceof Error) {
+        alert(error.message);
+      }
+    }
+  };
+
   return (
     <section className="w-[58.4%] min-h-240 h-screen text-Grey-900 py-8 px-10 flex justify-center items-center ">
-      <form className="rounded-xl bg-White p-8 min-w-140">
-        <h2 className="text-preset-1 mb-8">Sign Up</h2>
+      <form
+        className="rounded-xl bg-White p-8 min-w-140"
+        onSubmit={handleLogin}
+      >
+        <h2 className="text-preset-1 mb-8">Sign In</h2>
         <div id="register-fields" className="flex flex-col gap-4 mb-8">
           <Input labelText="Email" type="email" name="email" required />
           <Input
@@ -19,7 +63,10 @@ const LoginForm = () => {
         <Button type="submit">Login</Button>
         <p className="text-center text-preset-4 text-Grey-500">
           Need to create an account?{" "}
-          <Link href="/" className="text-Grey-900 underline text-preset-4-bold">
+          <Link
+            href="/register"
+            className="text-Grey-900 underline text-preset-4-bold"
+          >
             Sign Up
           </Link>
         </p>

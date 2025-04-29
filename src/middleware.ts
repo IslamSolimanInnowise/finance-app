@@ -1,43 +1,37 @@
-import { NextResponse, type NextRequest } from "next/server";
-import { auth } from "@/firebase";
+import { NextResponse } from "next/server";
+import type { NextRequest } from "next/server";
 
-// Define public routes that don't require authentication
-const publicRoutes = ["/login", "/register"];
+export function middleware(request: NextRequest) {
+  const authCookie = request.cookies.get("auth");
+  const { pathname } = request.nextUrl;
 
-export async function middleware(request: NextRequest) {
-  const path = request.nextUrl.pathname;
-  const user = auth.currentUser;
+  // Public routes that don't require authentication
+  const publicRoutes = ["/login", "/register"];
 
   if (
-    path.startsWith("/_next") ||
-    path.startsWith("/static") ||
-    path.startsWith("/api") ||
-    path.includes(".")
+    pathname.startsWith("/_next") || // Next.js system files
+    pathname.startsWith("/api") || // API routes
+    pathname.startsWith("/static") || // Static files
+    pathname.includes(".") // Files with extensions (images, etc.)
   ) {
     return NextResponse.next();
   }
 
-  if (publicRoutes.includes(path) && user) {
-    return NextResponse.redirect(new URL("/", request.url));
+  // If trying to access protected routes without auth, redirect to login
+  if (!publicRoutes.includes(pathname) && !authCookie) {
+    return NextResponse.redirect(new URL("/login", request.url));
   }
 
-  if (!publicRoutes.includes(path) && !user) {
-    return NextResponse.redirect(new URL("/login", request.url));
+  // If trying to access auth pages (login/register) while authenticated, redirect to home
+  if (publicRoutes.includes(pathname) && authCookie) {
+    return NextResponse.redirect(new URL("/", request.url));
   }
 
   return NextResponse.next();
 }
 
-// Configure middleware matcher
+// Configure which routes to run middleware on
 export const config = {
-  matcher: [
-    /*
-     * Match all paths except:
-     * 1. /api (API routes)
-     * 2. /_next (Next.js internals)
-     * 3. /static (static files)
-     * 4. all files in public folder
-     */
-    "/((?!api|_next|static|.*\\.).*)",
-  ],
+  //   matcher: ["/dashboard", "/login", "/register"],
+  matcher: "/((?!api|_next/static|_next/image|favicon.ico).*)",
 };

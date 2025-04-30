@@ -12,7 +12,7 @@ const Dashboard = () => {
       await signOut(auth);
       // Clear the auth cookie
       document.cookie = "auth=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT";
-      router.push("/login");
+      router.replace("/login");
     } catch (error) {
       console.error("Error signing out:", error);
     }

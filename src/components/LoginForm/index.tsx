@@ -33,14 +33,7 @@ const LoginForm = () => {
       // Set the auth cookie
       document.cookie = `auth=${idToken}; path=/; max-age=3600; secure; samesite=strict`;
 
-      alert("Congratulations! You have successfully logged in. \n ENJOY!!! ;)");
-
-      // Wait for a brief moment to ensure auth state is updated
-      setTimeout(() => {
-        router.push("/");
-        // Force a refresh to ensure the new auth state is recognized
-        router.refresh();
-      }, 100);
+      router.replace("/");
     } catch (error) {
       console.error(error);
       if (error instanceof Error) {

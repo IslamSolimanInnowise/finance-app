@@ -15,7 +15,7 @@ const Input: React.FC<InputProps> = ({
   ...props
 }) => {
   const inputId = useId();
-  const [isPasswordVisible, setIsPasswordVisible] = useState(false);
+  const [isPasswordVisible, setIsPasswordVisible] = useState(true);
   const originalType = type;
 
   return (

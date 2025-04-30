@@ -48,7 +48,6 @@ const RegisterForm: React.FC = () => {
       >
         <h2 className="text-preset-1 mb-8">Sign Up</h2>
         <div id="register-fields" className="flex flex-col gap-4 mb-8">
-          {/* <Input labelText="Name" name="name" required /> */}
           <Input labelText="Email" type="email" name="email" required />
           <Input
             labelText="Create Password"

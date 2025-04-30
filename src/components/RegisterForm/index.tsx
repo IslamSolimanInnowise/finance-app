@@ -60,7 +60,9 @@ const RegisterForm: React.FC = () => {
             </p>
           </Input>
         </div>
-        <Button>Create Account</Button>
+        <Button className="w-full h-[53px] cursor-pointer mb-8 text-preset-4-bold text-White">
+          Create Account
+        </Button>
         <p className="text-center text-preset-4 text-Grey-500">
           Already have an account?{" "}
           <Link

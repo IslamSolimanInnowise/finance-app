@@ -6,7 +6,7 @@ const SideBar: React.FC = () => {
     <aside className="p-5 w-[41.6%] min-h-240 h-screen">
       <div className="h-full w-full p-10 rounded-xl bg-[url('/Login-and-Signup-Illustration-Image.svg')] bg-cover bg-top bg-no-repeat flex flex-col justify-between">
         <Image src={Logo} alt="Logo" className="object-cover" />
-        <div className="text-white flex flex-col gap-6 bg-[#0307126e] p-2 rounded-xl">
+        <div className="text-white flex flex-col gap-6 bg-[#0307126e] p-2 rounded-xl border-Beige-100 border-1">
           <h1 className="text-preset-1">
             Keep track of your money and save for your future
           </h1>

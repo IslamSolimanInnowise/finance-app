@@ -58,7 +58,12 @@ const LoginForm = () => {
             required
           />
         </div>
-        <Button type="submit">Login</Button>
+        <Button
+          type="submit"
+          className="w-full h-[53px] cursor-pointer mb-8 text-preset-4-bold text-White"
+        >
+          Login
+        </Button>
         <p className="text-center text-preset-4 text-Grey-500">
           Need to create an account?{" "}
           <Link

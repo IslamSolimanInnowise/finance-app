@@ -1,10 +1,10 @@
 "use client";
 import Link from "next/link";
 import Input from "../Input";
-import Button from "../Button";
 import { useRouter } from "next/navigation";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "@/firebase";
+import { Button } from "@/shadcn/components/ui/button";
 
 const LoginForm = () => {
   const router = useRouter();

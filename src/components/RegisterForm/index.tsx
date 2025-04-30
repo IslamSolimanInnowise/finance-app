@@ -1,10 +1,10 @@
 "use client";
 import Link from "next/link";
 import Input from "../Input";
-import Button from "../Button";
 import { auth } from "@/firebase";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { useRouter } from "next/navigation";
+import { Button } from "@/shadcn/components/ui/button";
 
 const RegisterForm: React.FC = () => {
   const router = useRouter();

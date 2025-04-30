@@ -1,6 +1,6 @@
 "use client";
-import Button from "@/components/Button";
 import { auth } from "@/firebase";
+import { Button } from "@/shadcn/components/ui/button";
 import { signOut } from "firebase/auth";
 import { useRouter } from "next/navigation";
 

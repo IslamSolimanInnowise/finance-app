@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Public_Sans } from "next/font/google";
 import "./globals.css";
+import CustomLayout from "@/components/CustomLayout";
 
 const publicSans = Public_Sans({
   variable: "--font-public-sans",
@@ -20,7 +21,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${publicSans.variable} antialiased`}>{children}</body>
+      <body className={`${publicSans.variable} antialiased`}>
+        <CustomLayout>{children}</CustomLayout>
+      </body>
     </html>
   );
 }
